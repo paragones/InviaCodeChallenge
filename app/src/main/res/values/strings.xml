@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">InviaCodeChallenge</string>
+    <string name="search_label">Search Label</string>
+    <string name="search_hint">Search Repositories Here</string>
+</resources>
