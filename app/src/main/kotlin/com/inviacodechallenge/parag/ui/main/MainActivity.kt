@@ -1,39 +1,34 @@
-package com.inviacodechallenge.parag
+package com.inviacodechallenge.parag.ui.main
 
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.SearchView
-import android.view.Menu
-import android.content.Intent
 import android.util.Log
+import android.view.Menu
+import com.inviacodechallenge.parag.R
+import com.inviacodechallenge.parag.image.ImageLoader
+import com.inviacodechallenge.parag.ui.base.BaseActivity
+import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
+class MainActivity : BaseActivity(), SearchView.OnQueryTextListener {
+
+    @Inject lateinit var imageLoader: ImageLoader
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        // Get the intent, verify the action and get the query
-        val intent = intent
-        if (Intent.ACTION_SEARCH == intent.action) {
-            val query = intent.getStringExtra(SearchManager.QUERY)
-            doMySearch(query)
-        }
+        title = getString(R.string.app_title)
+        component().inject(this)
     }
 
     private fun doMySearch(query: String) { Log.e(this.javaClass.simpleName, "Query begin : $query")}
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the options menu from XML
         menuInflater.inflate(R.menu.item, menu)
-
-        // Get the SearchView and set the searchable configuration
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu.findItem(R.id.search).actionView as SearchView
-
-        // Assumes current activity is the searchable activity
         searchView.setOnQueryTextListener(this);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.setIconifiedByDefault(false)

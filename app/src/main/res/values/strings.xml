@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">InviaCodeChallenge</string>
+    <string name="app_name">Invia Code Challenge</string>
     <string name="search_label">Search Label</string>
     <string name="search_hint">Search Repositories Here</string>
+    <string name="app_title">GitHub Repository</string>
 </resources>

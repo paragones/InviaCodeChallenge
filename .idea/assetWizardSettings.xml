@@ -14,8 +14,11 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_search" />
-                            <entry key="sourceFile" value="C:\Workspace\IniviaCodeChallenge\app\src\main\res\drawable\baseline-search-24px.svg" />
+                            <entry key="height" value="320" />
+                            <entry key="outputName" value="ic_git_branch" />
+                            <entry key="overrideSize" value="true" />
+                            <entry key="sourceFile" value="C:\Workspace\IniviaCodeChallenge\app\src\main\res\drawable\git-branch.svg" />
+                            <entry key="width" value="200" />
                           </map>
                         </option>
                       </PersistentState>

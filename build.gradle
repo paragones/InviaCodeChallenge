@@ -3,22 +3,30 @@
 buildscript {
 
     ext {
-        kotlinVersion = '1.2.30'
         minSdkVersion = 19
         targetSdkVersion = 27
-        buildToolsVersion = '26.0.1'
-        androidSupportVersion = '25.3.1'
+        androidSupportVersion = '27.1.1'
+        kotlinVersion = '1.2.41'
         daggerVersion = '2.9'
-        retrofitVersion = '2.1.0'
-        rxJava = 'io.reactivex:rxjava:1.1.9'
-        rxKotlin = 'com.github.reactivex:rxkotlin:v0.60.0'
-        rxAndroid = 'io.reactivex:rxandroid:1.1.0'
-        supportV4 = "com.android.support:support-v4:$androidSupportVersion"
+        retrofitVersion = '2.3.0'
+        okhttpVersion = '3.8.0'
+        constraintLayoutVersion = '1.1.0'
+        rxKotlinVersion = '2.2.0'
+        rxAndroidVersion = '2.0.1'
+        rxJavaVersion = '2.1.6'
+        junitVersion = '4.12'
+        androidTestVersion = '1.0.2'
+        mockitoInlineVersion = '2.8.9'
+        mockitoKotlinVersion = '1.5.0'
+        roundImageViewVersion = '2.2.1'
+        picassoVersion = '2.5.2'
+        jazzyListVersion = '1.2.1'
     }
 
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.3'
