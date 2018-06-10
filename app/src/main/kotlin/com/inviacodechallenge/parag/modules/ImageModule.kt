@@ -1,8 +1,8 @@
-package modules
+package com.inviacodechallenge.parag.modules
 
 import android.content.Context
-import com.inviacodechallenge.parag.image.ImageLoader
-import com.inviacodechallenge.parag.image.PicasoImageLoader
+import com.inviacodechallenge.parag.services.ImageLoader
+import com.inviacodechallenge.parag.services.PicasoImageLoader
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

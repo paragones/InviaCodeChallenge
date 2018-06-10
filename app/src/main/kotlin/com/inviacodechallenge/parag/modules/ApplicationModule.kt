@@ -1,4 +1,4 @@
-package modules
+package com.inviacodechallenge.parag.modules
 
 import android.app.Application
 import android.content.Context

@@ -35,6 +35,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/githubName" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/repositories"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/githubName"
+        app:layout_constraintEnd_toEndOf="@+id/githubName" />
+
     <ProgressBar
         android:id="@+id/progressCircle"
         android:layout_width="75dp"
@@ -42,6 +51,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
 
 </android.support.constraint.ConstraintLayout>

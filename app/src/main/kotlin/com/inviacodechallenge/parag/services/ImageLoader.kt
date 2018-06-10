@@ -1,4 +1,4 @@
-package com.inviacodechallenge.parag.image
+package com.inviacodechallenge.parag.services
 
 import android.net.Uri
 import android.widget.ImageView

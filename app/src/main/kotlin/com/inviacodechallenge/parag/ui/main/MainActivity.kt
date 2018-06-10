@@ -6,13 +6,16 @@ import android.os.Bundle
 import android.support.v7.widget.SearchView
 import android.util.Log
 import android.view.Menu
+import android.view.inputmethod.InputMethodManager
+import com.inviacodechallenge.parag.models.Repository
 import com.inviacodechallenge.parag.R
-import com.inviacodechallenge.parag.image.ImageLoader
+import com.inviacodechallenge.parag.services.ImageLoader
 import com.inviacodechallenge.parag.ui.base.BaseActivity
 import javax.inject.Inject
 
 
-class MainActivity : BaseActivity(), SearchView.OnQueryTextListener {
+class MainActivity : BaseActivity(), MainView, SearchView.OnQueryTextListener {
+    @Inject lateinit var presenter: MainPresenter
 
     @Inject lateinit var imageLoader: ImageLoader
 
@@ -21,6 +24,7 @@ class MainActivity : BaseActivity(), SearchView.OnQueryTextListener {
         setContentView(R.layout.activity_main)
         title = getString(R.string.app_title)
         component().inject(this)
+        presenter.attach(this)
     }
 
     private fun doMySearch(query: String) { Log.e(this.javaClass.simpleName, "Query begin : $query")}
@@ -39,15 +43,24 @@ class MainActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
     override fun onQueryTextSubmit(query: String): Boolean {
         Log.e(this.javaClass.simpleName, "onQueryTextSubmit")
-        doMySearch(query)
+        val view = this.currentFocus
+        view?.let {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
 
+        presenter.loadRepository(query)
         return true
     }
 
-    override fun onQueryTextChange(newText: String): Boolean {
-        Log.e(this.javaClass.simpleName, "onQueryTextChange")
-        doMySearch(newText)
+    override fun onQueryTextChange(query: String): Boolean { return true }
 
-        return true
+    override fun displayRepositories(categories: List<Repository>) {
+    }
+
+    override fun displayError() {
+    }
+
+    override fun hideLoading() {
     }
 }

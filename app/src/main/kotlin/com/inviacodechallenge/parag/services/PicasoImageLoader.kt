@@ -1,4 +1,4 @@
-package com.inviacodechallenge.parag.image
+package com.inviacodechallenge.parag.services
 
 import android.content.Context
 import android.net.Uri

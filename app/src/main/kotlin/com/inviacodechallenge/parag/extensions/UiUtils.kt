@@ -1,4 +1,4 @@
-package com.inviacodechallenge.parag.extension
+package com.inviacodechallenge.parag.extensions
 
 import android.view.View
 

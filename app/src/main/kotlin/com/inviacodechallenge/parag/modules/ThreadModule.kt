@@ -1,4 +1,4 @@
-package modules
+package com.inviacodechallenge.parag.modules
 
 import com.inviacodechallenge.parag.schedulers.ThreadScheduler
 import com.inviacodechallenge.parag.schedulers.ThreadSchedulerImpl
