@@ -12,9 +12,10 @@ class MainPresenter @Inject constructor(private val gitHubRepository: GithubRepo
         gitHubRepository.loadRepository(query)
                 .compose(allocateSchedule())
                 .subscribe({
-                    Log.e(this.javaClass.simpleName, it.toString())
+                    view?.hideLoading()
+                    view?.displayRepositories(it)
                 }, {
-                    Log.e(this.javaClass.simpleName, "Error : $it")
+                    view?.displayError()
                 })
     }
 

@@ -21,6 +21,7 @@ buildscript {
         roundImageViewVersion = '2.2.1'
         picassoVersion = '2.5.2'
         jazzyListVersion = '1.2.1'
+        spinKitVersion = '1.1.0'
     }
 
     repositories {
@@ -41,6 +42,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 

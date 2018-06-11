@@ -9,8 +9,8 @@ class RepositoryDataMapperImpl: DataMapper<List<RepositoryResults>, List<Reposit
         return input.map {
             Repository(it.repositoryName,
                     it.repositoryFullName,
-                    Owner(it.repositoryOwner?.ownerName,
-                            it.repositoryOwner?.ownerAvatarUrl),
+                    Owner(it.repositoryOwner.ownerName,
+                            it.repositoryOwner.ownerAvatarUrl),
                     it.repositoryDescription,
                     it.repositoryLanguage,
                     it.repositoryForks,

@@ -4,4 +4,14 @@
     <string name="search_hint">Search Repositories Here</string>
     <string name="app_title">GitHub Repository</string>
     <string name="repositories">Repositories</string>
+    <string name="error_message">Sorry there was an error loading the items. Please try again later</string>
+    <string name="big_repository_name">Big Repository Name</string>
+    <string name="owner_name">owner name</string>
+    <string name="description">Description</string>
+    <string name="description_goes_here">Description Goes Here</string>
+    <string name="programming_language">Programming Language</string>
+    <string name="language_goes_here">Language Goes here</string>
+    <string name="fork_label">Number of Forks</string>
+    <string name="last_update">Last Update</string>
+    <string name="date_goes_here">Date Goes Here</string>
 </resources>

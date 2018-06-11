@@ -1,9 +1,9 @@
 package com.inviacodechallenge.parag.ui.main
 
-import com.inviacodechallenge.parag.models.Repository
+import com.inviacodechallenge.parag.models.RepositoryViewHandler
 
 interface MainView {
-    fun displayRepositories(categories: List<Repository>)
+    fun displayRepositories(repositoryViewHandler: RepositoryViewHandler)
     fun displayError()
     fun hideLoading()
 }
