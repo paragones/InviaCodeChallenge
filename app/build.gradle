@@ -20,7 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets{
+    sourceSets {
         main {
             java.srcDirs += 'src/main/kotlin'
             test.java.srcDirs += 'src/test/kotlin'
@@ -64,6 +64,7 @@ dependencies {
 
     //Dagger
     implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
     //Testing

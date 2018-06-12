@@ -14,7 +14,8 @@
         android:scrollbars="vertical"
         android:visibility="gone"/>
 
-    <ImageView
+    <!--<ImageView-->
+    <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/githubName"
         android:layout_width="150dp"
         android:layout_height="90dp"
@@ -24,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/githubIcon"
@@ -39,7 +40,7 @@
         app:layout_constraintEnd_toStartOf="@+id/githubName"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/githubName" />
+        app:layout_constraintTop_toTopOf="@+id/githubName"/>
 
     <TextView
         android:id="@+id/tvRepository"
@@ -49,19 +50,18 @@
         android:text="@string/repositories"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="@+id/githubName"
-        app:layout_constraintEnd_toEndOf="@+id/githubName" />
+        app:layout_constraintEnd_toEndOf="@+id/githubName"/>
 
     <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/progressBar"
-        style="@style/SpinKitView.Small.ThreeBounce"
-        android:layout_width="93dp"
-        android:layout_height="26dp"
+        style="@style/SpinKitView.Large.ThreeBounce"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         app:SpinKit_Color="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -12,8 +12,8 @@ import retrofit2.adapter.rxjava2.Result
 
 class GithubRepositoryImpl(val githubRepositoryRest: GithubRepositoryRest,
                            val dataMapper: DataMapper<List<RepositoryResults>, List<Repository>>): GithubRepository {
-    override fun loadRepository(query: String): Observable<RepositoryViewHandler> {
-        return githubRepositoryRest.repositories(query, 1, 5)
+    override fun loadRepository(query: String, page: Int, list: Int): Observable<RepositoryViewHandler> {
+        return githubRepositoryRest.repositories(query,page,list)
                 .flatMap { Observable.just(RepositoryViewHandler(paginateResults(it), transformData(it))) }
     }
 

@@ -8,13 +8,13 @@ import com.inviacodechallenge.parag.services.write
 import java.io.Serializable
 import java.util.*
 
-data class RepositoryResults(@SerializedName("name") val repositoryName: String,
-                             @SerializedName("full_name") val repositoryFullName: String,
-                             @SerializedName("owner") val repositoryOwner: RepositoryOwner,
-                             @SerializedName("description") val repositoryDescription: String,
-                             @SerializedName("language") val repositoryLanguage: String,
-                             @SerializedName("forks") val repositoryForks: Int,
-                             @SerializedName("updated_at") val update: Date) : Serializable, DefaultParcelable {
+data class RepositoryResults(@SerializedName("name") val repositoryName: String?,
+                             @SerializedName("full_name") val repositoryFullName: String?,
+                             @SerializedName("owner") val repositoryOwner: RepositoryOwner?,
+                             @SerializedName("description") val repositoryDescription: String?,
+                             @SerializedName("language") val repositoryLanguage: String?,
+                             @SerializedName("forks") val repositoryForks: Int?,
+                             @SerializedName("updated_at") val update: Date?) : Serializable, DefaultParcelable {
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.write(repositoryName,
                 repositoryFullName,
