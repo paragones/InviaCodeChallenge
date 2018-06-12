@@ -18,10 +18,8 @@ import com.inviacodechallenge.parag.extensions.visible
 import com.inviacodechallenge.parag.models.Repository
 import com.inviacodechallenge.parag.models.RepositoryViewHandler
 import com.inviacodechallenge.parag.services.ImageLoader
-import com.inviacodechallenge.parag.services.Pagination
+import com.inviacodechallenge.parag.models.Pagination
 import com.inviacodechallenge.parag.ui.base.BaseActivity
-import com.twotoasters.jazzylistview.effects.SlideInEffect
-import com.twotoasters.jazzylistview.recyclerview.JazzyRecyclerViewScrollListener
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import javax.inject.Inject
@@ -81,6 +79,7 @@ class MainActivity : BaseActivity(), MainView, SearchView.OnQueryTextListener {
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
         displayLoading()
+        items.clear()
         presenter.loadRepository(query, initialPage, initialList)
         return true
     }
@@ -92,13 +91,10 @@ class MainActivity : BaseActivity(), MainView, SearchView.OnQueryTextListener {
     private fun setupList() {
         mainAdapter = MainAdapter(imageLoader,
                 items,
-                { repositoryName:String?, fullName: String? -> openSubscriberActivity(repositoryName, fullName) })
+                { repositoryName:String?, ownerName: String? -> openSubscriberActivity(repositoryName, ownerName) })
+
         mainRecyclerView.layoutManager = mainManager
         mainRecyclerView.adapter = mainAdapter
-        val jazzyAnimation = JazzyRecyclerViewScrollListener()
-        jazzyAnimation.setShouldOnlyAnimateNewItems(true)
-        jazzyAnimation.setTransitionEffect(SlideInEffect())
-        mainRecyclerView.addOnScrollListener(jazzyAnimation)
     }
 
     override fun displayRepositories(repositoryViewHandler: RepositoryViewHandler) {
@@ -136,8 +132,8 @@ class MainActivity : BaseActivity(), MainView, SearchView.OnQueryTextListener {
         })
     }
 
-    private fun openSubscriberActivity(repositoryName:String?, fullName: String?) {
-        startActivity(SubscriberActivity.intent(this, repositoryName, fullName))
+    private fun openSubscriberActivity(repositoryName:String?, ownerName: String?) {
+        startActivity(SubscriberActivity.intent(this, repositoryName, ownerName))
     }
 
     override fun displayError() {

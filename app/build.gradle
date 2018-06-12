@@ -80,7 +80,5 @@ dependencies {
     //Image and Animation
     implementation "com.makeramen:roundedimageview:$roundImageViewVersion"
     implementation "com.squareup.picasso:picasso:$picassoVersion"
-    implementation "com.twotoasters.jazzylistview:library:$jazzyListVersion"
-    implementation "com.twotoasters.jazzylistview:library-recyclerview:$jazzyListVersion"
     implementation "com.github.ybq:Android-SpinKit:$spinKitVersion"
 }

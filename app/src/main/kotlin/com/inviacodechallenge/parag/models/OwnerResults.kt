@@ -8,8 +8,8 @@ import com.inviacodechallenge.parag.services.read
 import com.inviacodechallenge.parag.services.write
 import java.io.Serializable
 
-data class RepositoryOwner(@SerializedName("login") val ownerName: String?,
-                           @SerializedName("avatar_url") val ownerAvatarUrl: Uri?):Serializable, DefaultParcelable {
+data class OwnerResults(@SerializedName("login") val ownerName: String?,
+                        @SerializedName("avatar_url") val ownerAvatarUrl: Uri?):Serializable, DefaultParcelable {
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.write(ownerName,
                 ownerAvatarUrl)
@@ -18,7 +18,7 @@ data class RepositoryOwner(@SerializedName("login") val ownerName: String?,
     companion object {
         @JvmField
         val CREATOR = DefaultParcelable.generateCreator {
-            RepositoryOwner(it.read(), it.read())
+            OwnerResults(it.read(), it.read())
         }
     }
 }

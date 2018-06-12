@@ -1,16 +1,12 @@
 package com.inviacodechallenge.parag.ui.main
 
-import android.net.Uri
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.inviacodechallenge.parag.R
-import com.inviacodechallenge.parag.extensions.concatenateAlphaAnimations
-import com.inviacodechallenge.parag.extensions.visible
 import com.inviacodechallenge.parag.models.Repository
 import com.inviacodechallenge.parag.services.DateUtil
 import com.inviacodechallenge.parag.services.ImageLoader
@@ -26,7 +22,7 @@ class MainAdapter(private val imageLoader: ImageLoader,
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val rlRepository = view.findViewById(R.id.rlRepository) as ConstraintLayout
+        val rlRepository = view.findViewById(R.id.clRepository) as ConstraintLayout
         val repositoryName = view.findViewById(R.id.repositoryName) as TextView
         val ownerAvatar = view.findViewById(R.id.ownerAvatar) as RoundedImageView
         val ownerName = view.findViewById(R.id.ownerName) as TextView
@@ -42,12 +38,11 @@ class MainAdapter(private val imageLoader: ImageLoader,
         holder.description.text = repositories[position].description
         holder.language.text = repositories[position].language
         holder.forks.text = repositories[position].forks.toString()
-        holder.date.text = DateUtil.parseDate(repositories[position]?.update)
+        holder.date.text = DateUtil.parseDate(repositories[position].update)
         imageLoader.loadInto(repositories[position].owner?.avatarUrl, holder.ownerAvatar)
         holder.rlRepository.setOnClickListener{
-            openSubscriberActivity(repositories[position].name, repositories[position].fullName)
+            openSubscriberActivity(repositories[position].name, repositories[position].owner?.name)
         }
-//        concatenateAlphaAnimations(mutableListOf(holder.rlRepository),100, 1f)
     }
 
     override fun getItemCount(): Int = repositories.size

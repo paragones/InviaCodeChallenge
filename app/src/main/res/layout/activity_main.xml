@@ -2,10 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/mainParent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mainRecyclerView"
@@ -14,7 +12,6 @@
         android:scrollbars="vertical"
         android:visibility="gone"/>
 
-    <!--<ImageView-->
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/githubName"
         android:layout_width="150dp"
@@ -36,6 +33,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_github_icon"
+        android:contentDescription="@string/icon"
         app:layout_constraintBottom_toBottomOf="@+id/githubName"
         app:layout_constraintEnd_toStartOf="@+id/githubName"
         app:layout_constraintHorizontal_bias="1"
@@ -52,7 +50,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/githubName"
         app:layout_constraintEnd_toEndOf="@+id/githubName"/>
 
-    <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/progressBar"
         style="@style/SpinKitView.Large.ThreeBounce"
         android:layout_width="200dp"

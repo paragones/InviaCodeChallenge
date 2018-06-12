@@ -12,8 +12,6 @@ class MainPresenter @Inject constructor(private val gitHubRepository: GithubRepo
         gitHubRepository.loadRepository(query, page, list)
                 .compose(allocateSchedule())
                 .subscribe({
-//                    Log.e(this.javaClass.simpleName, "On subscribe:")
-//                    Log.e(this.javaClass.simpleName, "result ${it.repositories}")
                     view?.hideLoading()
                     view?.displayRepositories(it)
                 }, {

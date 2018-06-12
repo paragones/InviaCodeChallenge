@@ -1,5 +1,7 @@
 package com.inviacodechallenge.parag.services
 
+import com.inviacodechallenge.parag.models.Link
+import com.inviacodechallenge.parag.models.Pagination
 import okhttp3.Headers
 import retrofit2.Response
 

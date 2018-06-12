@@ -1,9 +1,6 @@
 package com.inviacodechallenge.parag.repositories
 
-import com.inviacodechallenge.parag.models.Repository
-import com.inviacodechallenge.parag.models.RepositoryResponse
-import com.inviacodechallenge.parag.models.RepositoryResults
-import com.inviacodechallenge.parag.models.RepositoryViewHandler
+import com.inviacodechallenge.parag.models.*
 import com.inviacodechallenge.parag.rest.GithubRepositoryRest
 import com.inviacodechallenge.parag.services.DataMapper
 import com.inviacodechallenge.parag.services.PaginationHeaderParser
@@ -11,19 +8,31 @@ import io.reactivex.Observable
 import retrofit2.adapter.rxjava2.Result
 
 class GithubRepositoryImpl(val githubRepositoryRest: GithubRepositoryRest,
-                           val dataMapper: DataMapper<List<RepositoryResults>, List<Repository>>): GithubRepository {
+                           val mapper: DataMapper): GithubRepository {
     override fun loadRepository(query: String, page: Int, list: Int): Observable<RepositoryViewHandler> {
-        return githubRepositoryRest.repositories(query,page,list)
-                .flatMap { Observable.just(RepositoryViewHandler(paginateResults(it), transformData(it))) }
+        return githubRepositoryRest.repositories(query, page, list)
+                .flatMap { Observable.just(RepositoryViewHandler(paginateResults(it), transformRepositories(it))) }
     }
 
-    private fun paginateResults(it: Result<RepositoryResponse>) =
+    override fun loadSubscribers(query: String, repositoryName: String, page: Int, list: Int): Observable<SubscriberViewHandler> {
+        return githubRepositoryRest.subscribers(query, repositoryName, page, list)
+                .flatMap { Observable.just(SubscriberViewHandler(paginateResults(it), transformSubscribers(it))) }
+    }
+
+    private fun paginateResults(it: Result<*>) =
             PaginationHeaderParser.parse(it.response())
 
-    private fun transformData(it: Result<RepositoryResponse>?): List<Repository> {
+    private fun transformRepositories(it: Result<RepositoryResponse>?): List<Repository> {
             it?.response()?.body()?.let {
-                return dataMapper.transform(it.repositoryResults)
+                return mapper.transformRepository(it.repositoryResults)
             }
+        return emptyList()
+    }
+
+    private fun transformSubscribers(it: Result<List<OwnerResults>>?): List<Subscriber> {
+        it?.response()?.body()?.let {
+            return mapper.tranformSubscribers(it)
+        }
         return emptyList()
     }
 }

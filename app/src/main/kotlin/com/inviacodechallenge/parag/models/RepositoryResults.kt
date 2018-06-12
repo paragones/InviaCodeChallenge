@@ -10,7 +10,7 @@ import java.util.*
 
 data class RepositoryResults(@SerializedName("name") val repositoryName: String?,
                              @SerializedName("full_name") val repositoryFullName: String?,
-                             @SerializedName("owner") val repositoryOwner: RepositoryOwner?,
+                             @SerializedName("owner") val ownerResults: OwnerResults?,
                              @SerializedName("description") val repositoryDescription: String?,
                              @SerializedName("language") val repositoryLanguage: String?,
                              @SerializedName("forks") val repositoryForks: Int?,
@@ -18,7 +18,7 @@ data class RepositoryResults(@SerializedName("name") val repositoryName: String?
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.write(repositoryName,
                 repositoryFullName,
-                repositoryOwner,
+                ownerResults,
                 repositoryDescription,
                 repositoryLanguage,
                 repositoryForks,

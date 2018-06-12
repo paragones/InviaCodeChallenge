@@ -15,6 +15,6 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideGithubRepository(rest: GithubRepositoryRest, mapper: DataMapper<List<RepositoryResults>, List<Repository>>):
+    fun provideGithubRepository(rest: GithubRepositoryRest, mapper: DataMapper):
             GithubRepository = GithubRepositoryImpl(rest,mapper)
 }

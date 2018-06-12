@@ -1,4 +1,4 @@
-package com.inviacodechallenge.parag.services
+package com.inviacodechallenge.parag.models
 
 class Pagination {
     private var links = arrayOf<Link?>()

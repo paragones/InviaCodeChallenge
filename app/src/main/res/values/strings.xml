@@ -15,4 +15,7 @@
     <string name="last_update">Last Update :</string>
     <string name="date_goes_here">Date Goes Here</string>
     <string name="fork_goes_here">Fork Goes here</string>
+    <string name="subscribers_title">%s Subscribers</string>
+    <string name="icon">Icon here</string>
+    <string name="subscriber_count">Subscribers ~ %d</string>
 </resources>

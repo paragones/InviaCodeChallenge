@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
@@ -10,11 +8,10 @@
     android:background="@drawable/shadow">
 
     <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/rlRepository"
+        android:id="@+id/clRepository"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="16dp">
-        <!--android:foreground="?android:attr/selectableItemBackground">-->
 
         <TextView
             android:id="@+id/repositoryName"
@@ -25,6 +22,10 @@
             android:textSize="30sp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:maxLength="20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -49,6 +50,9 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
             android:textAlignment="center"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:maxLength="10"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ownerAvatar" />
 

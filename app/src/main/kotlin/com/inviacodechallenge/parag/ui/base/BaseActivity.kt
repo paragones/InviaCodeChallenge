@@ -1,6 +1,7 @@
 package com.inviacodechallenge.parag.ui.base
 
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import com.inviacodechallenge.parag.component.ActivityComponent
 import com.inviacodechallenge.parag.component.DaggerActivityComponent
 import com.inviacodechallenge.parag.modules.*
@@ -17,4 +18,12 @@ abstract class BaseActivity: AppCompatActivity() {
                 .imageModule(ImageModule())
                 .build()
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
